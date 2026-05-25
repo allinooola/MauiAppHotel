@@ -4,64 +4,117 @@
              x:Class="MauiAppHotel.Views.HospedagemContratada"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource Gray100}">
-    
-    
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
-        <Label 
-            Text="Suíte Super Luxo"
-            TextColor="{StaticResource Primary}"
-            FontSize="50"
-            FontFamily="Kalam"
-            HorizontalOptions="Center" />
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="12"
+                             VerticalOptions="Center">
 
-        <Label 
-            Text="Sua hospedagem foi contratada com sucesso!"
-            FontSize="18"
-            HorizontalOptions="Center"
-            HorizontalTextAlignment="Center" />
+            <!-- Ícone de sucesso -->
+            <Frame WidthRequest="56"
+                   HeightRequest="56"
+                   CornerRadius="28"
+                   Padding="0"
+                   HasShadow="False"
+                   BackgroundColor="#E1F5EE"
+                   BorderColor="Transparent"
+                   HorizontalOptions="Center">
+                <Label Text="✓"
+                       FontSize="24"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Frame>
 
-        <Frame 
-            Margin="10">
-            <HorizontalStackLayout>
+            <Label Text="Suíte Super Luxo"
+                   TextColor="{StaticResource Primary}"
+                   FontSize="38"
+                   FontFamily="Kalam"
+                   HorizontalOptions="Center"/>
 
-            <HorizontalStackLayout>
-                <Label Text="Adultos:  " />
-                <Label Text=" 2"
-                       TextColor="{StaticResource Primary}" />
-            </HorizontalStackLayout>
-                <Label Text="  Crianças:  " />
-                <Label Text=" 2"
-                       TextColor="{StaticResource Primary}" />
-            </HorizontalStackLayout>
-        </Frame>
+            <Label Text="Sua hospedagem foi contratada com sucesso!"
+                   FontSize="15"
+                   TextColor="{StaticResource Gray600}"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,8"/>
 
-        <Frame
-            Margin="10">
-            <Grid ColumnDefinitions="*, *, *"
-                  RowDefinitions="Auto, Auto, Auto">
-                <Label Grid.Row="0" Grid.Column="0" Text="Check-in: " />
-                <Label Grid.Row="0" Grid.Column="1" Text="Check-out: " />
-                <Label Grid.Row="0" Grid.Column="2" Text="Estadia: " />
+            <!-- Card hóspedes -->
+            <Frame Padding="16"
+                   CornerRadius="14"
+                   HasShadow="False"
+                   BorderColor="{StaticResource Gray200}"
+                   BackgroundColor="{StaticResource White}">
+                <HorizontalStackLayout Spacing="8">
+                    <Label Text="Adultos:" FontSize="13" TextColor="{StaticResource Gray500}" VerticalOptions="Center"/>
+                    <Label Text=" 2" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" HeightRequest="16" Color="{StaticResource Gray300}" VerticalOptions="Center" Margin="8,0"/>
+                    <Label Text="Crianças:" FontSize="13" TextColor="{StaticResource Gray500}" VerticalOptions="Center"/>
+                    <Label Text=" 2" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Primary}" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Frame>
 
-                <Label Grid.Row="1" Grid.Column="0" Text="27/06/2024" />
-                <Label Grid.Row="1" Grid.Column="1" Text="30/06/2024" />
-                <Label Grid.Row="1" Grid.Column="2" Text="3 dias" />
-            </Grid>
-        </Frame>
+            <!-- Card datas -->
+            <Frame Padding="16"
+                   CornerRadius="14"
+                   HasShadow="False"
+                   BorderColor="{StaticResource Gray200}"
+                   BackgroundColor="{StaticResource White}">
+                <Grid ColumnDefinitions="*, *, *"
+                      RowDefinitions="Auto, Auto"
+                      RowSpacing="4">
 
-        <Frame 
-            Margin="10">
-            <HorizontalStackLayout>
-                <Label Text="Valor Total: " />
-                <Label Text=" R$750,00"/>
-            </HorizontalStackLayout>
-        </Frame>
+                    <Label Grid.Row="0" Grid.Column="0" Text="CHECK-IN" FontSize="10" TextColor="{StaticResource Gray400}" CharacterSpacing="0.8" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="CHECK-OUT" FontSize="10" TextColor="{StaticResource Gray400}" CharacterSpacing="0.8" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="ESTADIA" FontSize="10" TextColor="{StaticResource Gray400}" CharacterSpacing="0.8" HorizontalOptions="Center"/>
 
-        <Button Text="Voltar" 
-                HorizontalOptions="Center"
-                Clicked="Button_Clicked" />
-        
-    </VerticalStackLayout>
+                    <Label Grid.Row="1" Grid.Column="0" Text="27/06/2024" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Gray900}" HorizontalOptions="Center"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="30/06/2024" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Gray900}" HorizontalOptions="Center"/>
+                    <Label Grid.Row="1" Grid.Column="2" Text="3 dias" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Gray900}" HorizontalOptions="Center"/>
+                </Grid>
+            </Frame>
+
+            <!-- Card valor -->
+            <Frame Padding="16"
+                   CornerRadius="14"
+                   HasShadow="False"
+                   BorderColor="{StaticResource Gray200}"
+                   BackgroundColor="{StaticResource White}">
+                <Grid ColumnDefinitions="*, Auto">
+                    <Label Grid.Column="0"
+                           Text="Valor Total"
+                           FontSize="14"
+                           TextColor="{StaticResource Gray500}"
+                           VerticalOptions="Center"/>
+                    <Label Grid.Column="1"
+                           Text="R$ 750,00"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Primary}"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+
+            <Button Text="Ir para o Pagamento"
+                    HorizontalOptions="Fill"    
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontSize="15"
+                    HeightRequest="48"
+                    Margin="0,8,0,0"/>
+
+            <Button Text="Voltar"
+                    HorizontalOptions="Center"
+                    Clicked="Button_Clicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontSize="13"
+                    HeightRequest="48"
+                    Margin="0,4,0,0"/>  
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
